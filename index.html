@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-   <title>С���� �� �ҵ��ճ�</title>
+   <title>小本本 · 我的日常</title>
    <link rel="stylesheet" href="style.css">
    <link rel="manifest" href="manifest.json?v=3">
    <meta name="theme-color" content="#f59e0b">
    <meta name="apple-mobile-web-app-capable" content="yes">
    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="С����">
+  <meta name="apple-mobile-web-app-title" content="小本本">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=3">
   <link rel="apple-touch-icon" href="icon-192.png?v=3">
    <style>
@@ -68,75 +68,75 @@
             </svg>
         </div>
         <div class="header-content">
-            <h1>??</h1>
-            <p class="subtitle">���������еĴ�С��</p>
+            <h1>📒</h1>
+            <p class="subtitle">记下生活中的大小事</p>
         </div>
     </header>
     <main class="main">
         <nav class="tabs">
             <button class="tab active" data-tab="journal">
-                <span class="tab-icon">??</span>
-                <span class="tab-label">�ճ���¼</span>
+                <span class="tab-icon">✏️</span>
+                <span class="tab-label">日常记录</span>
             </button>
             <button class="tab" data-tab="todo">
-                <span class="tab-icon">?</span>
-                <span class="tab-label">��������</span>
+                <span class="tab-icon">✅</span>
+                <span class="tab-label">待办事项</span>
                 <span class="badge" id="todoBadge">0</span>
             </button>
             <button class="tab" data-tab="done">
-                <span class="tab-icon">??</span>
-                <span class="tab-label">�����</span>
+                <span class="tab-icon">🎉</span>
+                <span class="tab-label">已完成</span>
                 <span class="badge" id="doneBadge">0</span>
            </button>
            <button class="tab" data-tab="diet">
-               <span class="tab-icon">???</span>
-               <span class="tab-label">��ʳ��¼</span>
+               <span class="tab-icon">🍽️</span>
+               <span class="tab-label">饮食记录</span>
                
            </button>
 </nav>
     <div id="confirmOverlay" class="confirm-overlay">
         <div class="confirm-dialog">
-            <p id="confirmMsg">ȷ��Ҫɾ����</p>
+            <p id="confirmMsg">确定要删除吗？</p>
             <div class="confirm-buttons">
-                <button id="confirmCancel" class="btn btn-secondary">ȡ��</button>
-                <button id="confirmOk" class="btn btn-danger">ɾ��</button>
+                <button id="confirmCancel" class="btn btn-secondary">取消</button>
+                <button id="confirmOk" class="btn btn-danger">删除</button>
             </div>
         </div>
     </div>
         <section class="panel active" id="journalPanel">
             <div class="input-card">
-<textarea id="journalInput" placeholder="���췢����ʲô��д���������..." rows="4"></textarea>
-                <button id="journalBtn" class="btn btn-primary">��¼���� ??</button>
+<textarea id="journalInput" placeholder="今天发生了什么？写下你的心情..." rows="4"></textarea>
+                <button id="journalBtn" class="btn btn-primary">记录今天 💾</button>
             </div>
             <div class="entries" id="journalEntries"></div>
         </section>
         <section class="panel" id="todoPanel">
             <div class="input-card">
                 <div class="todo-input-row">
-                    <input type="text" id="todoInput" placeholder="��ʲô����Ҫ����">
-                    <button id="todoBtn" class="btn btn-primary">���� ?</button>
+                    <input type="text" id="todoInput" placeholder="有什么事情要做？">
+                    <button id="todoBtn" class="btn btn-primary">添加 ✚</button>
                 </div>
             </div>
             <div class="entries" id="todoEntries"></div>
         </section>
         <section class="panel" id="donePanel">
             <div class="done-header">
-                <p class="done-subtitle">�������ͣ����Ѿ�����˲������� ??</p>
+                <p class="done-subtitle">继续加油！你已经完成了不少事情 🌟</p>
             </div>
             <div class="entries" id="doneEntries"></div>
        </section>
                                            <section class="panel" id="dietPanel">
             <div class="diet-summary-card">
                 <div class="diet-target-row">
-                    <span>ÿ��Ŀ��</span>
+                    <span>每日目标</span>
                     <input type="number" id="dietTargetInput" value="2000" min="0" step="100" style="width:80px;border:2px solid #eee;border-radius:8px;padding:6px 10px;font-size:0.9rem;text-align:center;outline:none">
                     <span>kcal</span>
-                    <button id="dietTargetBtn" style="padding:6px 14px;border:none;background:linear-gradient(135deg,#ff6b6b,#ffa502);color:white;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.8rem">����</button>
+                    <button id="dietTargetBtn" style="padding:6px 14px;border:none;background:linear-gradient(135deg,#ff6b6b,#ffa502);color:white;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.8rem">设置</button>
                 </div>
                 <div class="diet-month-nav" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:8px">
-                    <button class="date-btn" id="dietPrevMonth">?</button>
-                    <span id="dietMonthLabel" style="font-weight:600;font-size:1.05rem;color:#2d3436;min-width:120px;text-align:center">2026��6��</span>
-                    <button class="date-btn" id="dietNextMonth">?</button>
+                    <button class="date-btn" id="dietPrevMonth">‹</button>
+                    <span id="dietMonthLabel" style="font-weight:600;font-size:1.05rem;color:#2d3436;min-width:120px;text-align:center">2026年6月</span>
+                    <button class="date-btn" id="dietNextMonth">›</button>
                 </div>
                 <div id="dietMonthSummary" style="text-align:center;font-size:0.8rem;color:#b2bec3"></div>
             </div>
@@ -147,44 +147,44 @@
        </section>
         <section class="panel" id="syncPanel">
             <div class="input-card">
-                <h3 style="font-size:1.05rem;margin-bottom:12px;color:#2d3436">? ���豸ͬ��</h3>
+                <h3 style="font-size:1.05rem;margin-bottom:12px;color:#2d3436">⚡ 跨设备同步</h3>
                 <p style="font-size:0.85rem;color:#636e72;margin-bottom:16px">
-                    �ֻ��͵���ʹ����ͬ�� Supabase URL��Anon Key �����Ƽ���ʵʱͬ��
+                    手机和电脑使用相同的 Supabase URL、Anon Key 和令牌即可实时同步
                 </p>
                 <div id="syncForm">
                     <div style="margin-bottom:10px">
-                        <label style="display:block;font-size:0.8rem;color:#636e72;margin-bottom:4px">Supabase ��Ŀ URL</label>
-                        <input type="text" id="syncUrl" placeholder="�� supabase.com Ӧ�������л�ȡ" style="width:100%;border:2px solid #eee;border-radius:10px;padding:10px 12px;font-size:0.9rem;outline:none;box-sizing:border-box">
+                        <label style="display:block;font-size:0.8rem;color:#636e72;margin-bottom:4px">Supabase 项目 URL</label>
+                        <input type="text" id="syncUrl" placeholder="从 supabase.com 应用设置中获取" style="width:100%;border:2px solid #eee;border-radius:10px;padding:10px 12px;font-size:0.9rem;outline:none;box-sizing:border-box">
                     </div>
                     <div style="margin-bottom:10px">
                         <label style="display:block;font-size:0.8rem;color:#636e72;margin-bottom:4px">Supabase anon key</label>
                         <input type="text" id="syncAnonKey" placeholder="your anon/public key" style="width:100%;border:2px solid #eee;border-radius:10px;padding:10px 12px;font-size:0.9rem;outline:none;box-sizing:border-box">
                     </div>
                     <div style="margin-bottom:14px">
-                        <label style="display:block;font-size:0.8rem;color:#636e72;margin-bottom:4px">ͬ�����ƣ��Զ�����</label>
-                        <input type="text" id="syncToken" placeholder="�Զ�������̨�豸������ͬ����" style="width:100%;border:2px solid #eee;border-radius:10px;padding:10px 12px;font-size:0.9rem;outline:none;box-sizing:border-box">
+                        <label style="display:block;font-size:0.8rem;color:#636e72;margin-bottom:4px">同步令牌（自定义口令）</label>
+                        <input type="text" id="syncToken" placeholder="自定义口令，两台设备填入相同内容" style="width:100%;border:2px solid #eee;border-radius:10px;padding:10px 12px;font-size:0.9rem;outline:none;box-sizing:border-box">
                     </div>
                     <div style="display:flex;gap:10px;flex-wrap:wrap">
-                        <button id="syncConnectBtn" class="btn btn-primary" style="flex:1">����</button>
-                        <button id="syncDisconnectBtn" style="flex:1;padding:10px;border:2px solid #b2bec3;border-radius:10px;background:white;color:#636e72;cursor:pointer;font-weight:600;font-size:0.9rem">�Ͽ�</button>
+                        <button id="syncConnectBtn" class="btn btn-primary" style="flex:1">连接</button>
+                        <button id="syncDisconnectBtn" style="flex:1;padding:10px;border:2px solid #b2bec3;border-radius:10px;background:white;color:#636e72;cursor:pointer;font-weight:600;font-size:0.9rem">断开</button>
                     </div>
                     <div id="syncStatus" style="text-align:center;margin-top:12px;padding:10px;border-radius:8px;font-size:0.85rem;background:#f8f9fa;color:#b2bec3">
-                        ? δ����
+                        ⚪ 未连接
                     </div>
                 </div>
             </div>
             <div class="input-card" style="padding:16px;font-size:0.85rem;color:#636e72;line-height:1.8">
-                <div onclick="var c=document.getElementById('setupContent'),a=document.getElementById('setupArrow');c.style.display=c.style.display==='none'?'block':'none';a.textContent=c.style.display==='none'?'?':'��'" style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-                    <span style="font-weight:600;font-size:0.85rem;color:#636e72">?? �״�ʹ�����ò���</span>
-                    <span id="setupArrow" style="font-size:0.75rem;color:#b2bec3">?</span>
+                <div onclick="var c=document.getElementById('setupContent'),a=document.getElementById('setupArrow');c.style.display=c.style.display==='none'?'block':'none';a.textContent=c.style.display==='none'?'▶':'▼'" style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                    <span style="font-weight:600;font-size:0.85rem;color:#636e72">📖 首次使用设置步骤</span>
+                    <span id="setupArrow" style="font-size:0.75rem;color:#b2bec3">▶</span>
                 </div>
                 <div id="setupContent" style="display:none">
-                    <p>1. �� <a href="https://supabase.com" target="_blank" style="color:#ff6b6b">supabase.com</a>��ע���˺ţ�������Ŀ</p>
-                    <p>2. ����Ŀ Settings �� API �л�ȡ Project URL �� anon/public key</p>
-                    <p>3. ����Ŀ SQL Editor �������·� SQL �������ݱ�</p>
-                    <p>4. �ڱ�ҳ������������Ϣ�����Զ�������ƣ���������ӡ�</p>
-                    <p>5. �ֻ��͵��Զ�����ͬ�������Ӻ������Զ�ʵʱͬ��</p>
-                    <p style="margin-top:8px;font-size:0.8rem;">���� SQL���� Supabase SQL Editor �����У���</p>
+                    <p>1. 打开 <a href="https://supabase.com" target="_blank" style="color:#ff6b6b">supabase.com</a>，注册账号，创建项目</p>
+                    <p>2. 在项目 Settings → API 中获取 Project URL 和 anon/public key</p>
+                    <p>3. 在项目 SQL Editor 中运行下方 SQL 创建数据表</p>
+                    <p>4. 在本页面填入上述信息和你自定义的令牌，点击「连接」</p>
+                    <p>5. 手机和电脑都用相同令牌连接后，数据自动实时同步</p>
+                    <p style="margin-top:8px;font-size:0.8rem;">所需 SQL（在 Supabase SQL Editor 中运行）：</p>
                 <pre style="background:#f1f2f6;padding:10px;border-radius:8px;font-size:0.8rem;overflow-x:auto;white-space:pre-wrap">
 CREATE TABLE sync_rooms (
   token TEXT PRIMARY KEY,
@@ -198,11 +198,11 @@ CREATE POLICY anon_access ON sync_rooms
             </div>
         </section>
     </main>
-    <button id="backToTop" class="back-to-top" style="display:none">��</button>
+    <button id="backToTop" class="back-to-top" style="display:none">↑</button>
     <footer class="footer">
-        <p>? ÿһ�춼���µĿ�ʼ ?</p>
+        <p>✨ 每一天都是新的开始 ✨</p>
     </footer>
-    <div class="sync-bottom-btn" onclick="toggleSyncPanel()">?</div>
+    <div class="sync-bottom-btn" onclick="toggleSyncPanel()">⚡</div>
    <div class="toast" id="toast"></div>
    <script src="sync.js"></script>
    <script src="app.js"></script>
