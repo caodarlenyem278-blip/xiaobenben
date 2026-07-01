@@ -2,11 +2,16 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>小本本 · 我的日常</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="theme-color" content="#f59e0b">
-    <style>
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>小本本 · 我的日常</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="manifest" href="manifest.json">
+   <meta name="theme-color" content="#f59e0b">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+   <meta name="apple-mobile-web-app-title" content="小本本">
+   <link rel="apple-touch-icon" href="icon-192.png">
+   <style>
         .loading .header-content h1, .loading .header-content .subtitle { opacity: 0; }
     </style>
     <script>document.documentElement.classList.add('loading')</script>
@@ -198,9 +203,16 @@ CREATE POLICY anon_access ON sync_rooms
     </footer>
     <div class="sync-bottom-btn" onclick="toggleSyncPanel()">⚡</div>
    <div class="toast" id="toast"></div>
-    <script src="sync.js"></script>
-    <script src="app.js"></script>
-    <script>document.documentElement.classList.remove('loading')</script>
+   <script src="sync.js"></script>
+   <script src="app.js"></script>
+   <script>
+   if ("serviceWorker" in navigator) {
+     navigator.serviceWorker.register("/xiaobenben/sw.js")
+       .then(function(reg) { console.log("SW registered:", reg.scope); })
+       .catch(function(err) { console.log("SW failed:", err); });
+   }
+   </script>
+   <script>document.documentElement.classList.remove('loading')</script>
 </body>
 </html>
 
