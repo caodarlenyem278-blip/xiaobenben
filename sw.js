@@ -1,5 +1,5 @@
 // 小本本 Service Worker – PWA 离线缓存
-const CACHE = "xiaobenben-v1";
+const CACHE = "xiaobenben-v2";
 const SHELL = [
   "/xiaobenben/",
   "/xiaobenben/index.html",
